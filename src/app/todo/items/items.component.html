@@ -1,0 +1,45 @@
+
+  <div *ngFor="let item of items;"
+       style="margin: 10px auto;
+     width: 500px;position: relative;">
+
+
+    <span [class.through]="item.isDone==true"
+          *ngIf="item.id !== editId"
+          style="margin-right: 20px;font-size: 18px;
+  text-align: left;display: inline-block;width: 200px">{{item.item}}</span>
+    <input style="margin-right: 20px;font-size: 18px;
+  text-align: left;display: inline-block;width: 200px"
+           [(ngModel)]="item.item"
+           nz-input *ngIf="item.id === editId"
+           (blur)="update()" (keyup.enter)="update()">
+
+    <button nz-button
+            class="button-right"
+            [nzType]="'primary'"
+
+            (click)="done(item.id);isDone = !isDone;"
+            [disabled]="">
+      完成
+    </button>
+
+
+    <button nz-button
+            class="button-right"
+            [nzType]="'primary'"
+            (click)="edit(item.id )"
+            [disabled]="">
+      编辑
+    </button>
+    <button nz-button
+            class="button-right"
+            [nzType]="'primary'"
+            (click)="delete(item.id)"
+            [disabled]="">
+      删除
+    </button>
+  </div>
+
+
+
+

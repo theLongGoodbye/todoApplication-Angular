@@ -1,0 +1,28 @@
+<div class="full-color">
+  <div class="full-screen page-content">
+    <div class="wrapper">
+      <img class="logo-img"
+           src="./assets/img/logo.png"
+           alt="">
+      <div class="text-wrapper">
+        <h1 class="title-text">
+          开始你的计划
+        </h1>
+      </div>
+      <input nz-input
+             placeholder="请注册一个用户名"
+             #usernameInput
+             [(ngModel)]="username">
+      <button nz-button
+              [nzType]="'primary'"
+              (click)="completeSetup()"
+              routerLink="/todo"
+              [disabled]="!usernameInput.value">
+        开始
+      </button>
+      <div class="copy-right">
+        Copyright © 2018 Wendell Hu
+      </div>
+    </div>
+  </div>
+</div>
